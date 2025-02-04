@@ -40,7 +40,7 @@ namespace API.Controllers
 
         //getPatient
         [HttpGet("get_patients")]
-        //[Authorize(Roles = "Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public JsonResult get_patients() 
         {
             string query = "SELECT * FROM patients";
@@ -61,7 +61,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("delete_patient/{id}")]
-        //[Authorize(Roles = "Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public IActionResult delete_patients(int id)
         {
             string query = "DELETE FROM patients WHERE patientId = @id";
@@ -100,7 +100,7 @@ namespace API.Controllers
         }
 
         [HttpGet("patient-details/{id}")]
-        //[Authorize(Roles = "Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public async Task<IActionResult> get_patient(int id)
         {
             string query = "SELECT * FROM patients where patientId = @id";
@@ -159,7 +159,7 @@ namespace API.Controllers
 
 
         [HttpPut("/patient-details/update/{id}")]
-        //[Authorize(Roles = "Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public async Task<JsonResult> update_patient(int id, [FromBody] Patient updatedpatient)
         {
             try
@@ -230,7 +230,7 @@ namespace API.Controllers
         }
 
         [HttpPost("/add-patient/create")]
-        //[Authorize(Roles = "Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public async Task<JsonResult> add_patient([FromBody] Patient newpatient)
         {
                 string query = @"INSERT INTO patients
