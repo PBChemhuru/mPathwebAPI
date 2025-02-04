@@ -67,12 +67,12 @@ app.Use(async (context, next) =>
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // Enable Swagger in Development environment
+    app.UseSwagger(); 
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); // Add the Swagger endpoint URL
-        c.RoutePrefix = string.Empty; // Makes Swagger UI accessible at root URL (optional)
-    }); // Enable the Swagger UI page
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); 
+        c.RoutePrefix = string.Empty;
+    });
     app.MapOpenApi();
 }
 
